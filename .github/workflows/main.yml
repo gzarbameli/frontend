@@ -60,8 +60,9 @@ jobs:
              kubectl get pod -n default --no-headers=true | awk '/frontend-deployment/{print $1}' | xargs  kubectl delete -n default pod
              kubectl get pods
              sleep 10
+             kubectl get pods
              kubectl port-forward --address=0.0.0.0 svc/frontend-service 30000:3000 > /dev/null 2>&1 & 
-             port-forward
+             ps ax |grep port-forward
              exit
              EOF
   
