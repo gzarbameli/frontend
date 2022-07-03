@@ -45,26 +45,21 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         
-      - name: test labsuser pem
+      - name: Set Certificate Permissions
         run: chmod 400 labsuser.pem
       
-      - name: installing requirements
+      - name: Installing Requirements
         run: sudo apt-get update -y && sudo apt-get install gawk -y
 
       # Runs a set of commands using the runners shell
-      - name: SSH 
+      - name: Update Kubernetes Items 
         run: |
              ssh -oStrictHostKeyChecking=no -i labsuser.pem ubuntu@44.205.128.120 <<- 'EOF'
              pkill -f "port-forward --address=0.0.0.0 svc/frontend-service 30000:3000"
              kubectl get pod -n default --no-headers=true | awk '/frontend-deployment/{print $1}' | xargs  kubectl delete -n default pod
-             sleep 5
-             exit
-             EOF
-      - name: Forward 
-        run: |
-             ssh -oStrictHostKeyChecking=no -i labsuser.pem ubuntu@44.205.128.120 <<- 'EOF'
+             sleep 60
              kubectl get pods
-             kubectl port-forward --address=0.0.0.0 svc/frontend-service 30000:3000 > /dev/null 2>&1 & 
+             kubectl port-forward --address=0.0.0.0 svc/frontend-service 30000:3000 > /dev/null 2>&1 &
              exit
              EOF
   
