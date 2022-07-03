@@ -61,6 +61,10 @@ jobs:
              kubectl get pods
              sleep 10
              kubectl get pods
+             sleep 10
+             kubectl get pods
+             sleep 10
+             kubectl get pods
              kubectl port-forward --address=0.0.0.0 svc/frontend-service 30000:3000 > /dev/null 2>&1 & 
              ps ax |grep port-forward
              exit
