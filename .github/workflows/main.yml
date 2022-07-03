@@ -56,17 +56,15 @@ jobs:
         run: |
              ssh -oStrictHostKeyChecking=no -i labsuser.pem ubuntu@44.205.128.120 <<- 'EOF'
              pkill -f "port-forward --address=0.0.0.0 svc/frontend-service 30000:3000"
-             ps ax |grep port-forward
              kubectl get pod -n default --no-headers=true | awk '/frontend-deployment/{print $1}' | xargs  kubectl delete -n default pod
-             kubectl get pods
-             sleep 10
-             kubectl get pods
-             sleep 10
-             kubectl get pods
-             sleep 10
+             sleep 5
+             exit
+             EOF
+      - name: Forward 
+        run: |
+             ssh -oStrictHostKeyChecking=no -i labsuser.pem ubuntu@44.205.128.120 <<- 'EOF'
              kubectl get pods
              kubectl port-forward --address=0.0.0.0 svc/frontend-service 30000:3000 > /dev/null 2>&1 & 
-             ps ax |grep port-forward
              exit
              EOF
   
