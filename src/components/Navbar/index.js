@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <Nav>
         <NavLink to='/'>
-          <img src={require('../../images/logo.png')} alt='logo'  width="280" height="100" />
+          <img src={require('../../images/logo.png')} alt='logo' width="280" height="100" />
         </NavLink>
         <Bars />
         <NavMenu>
@@ -25,6 +25,9 @@ const Navbar = () => {
           </NavLink>
           <NavLink to='/myreservations' activeStyle>
             My Reservations
+          </NavLink>
+          <NavLink to='/login' activeStyle>
+            Login
           </NavLink>
         </NavMenu>
       </Nav>
