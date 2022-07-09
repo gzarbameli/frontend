@@ -13,17 +13,17 @@ async function loginUser(credentials) {
 }
 
 const Login = ({ setToken }) => {
-    const [username, setUserName] = useState();
+    const [matricula, setMatricula] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
         e.preventDefault();
         const token = await loginUser({
-            username,
+            matricula,
             password
         });
-        console.log(username)
-        
+        console.log(matricula)
+
         setToken(token);
     }
 
@@ -32,8 +32,8 @@ const Login = ({ setToken }) => {
             <h1>Please Log In</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <p>Username</p>
-                    <input type="text" onChange={e => setUserName(e.target.value)} />
+                    <p>Matricula</p>
+                    <input type="text" onChange={e => setMatricula(e.target.value)} />
                 </label>
                 <label>
                     <p>Password</p>
