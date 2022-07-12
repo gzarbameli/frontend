@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   background: #0c0b0b;
-  height: 200px;
+  height: px;
   display: flex;
   z-index: 1;
-  font-size: 25px;
+  font-size: 33px;
   
   /* Third Nav */
   /* justify-content: flex-start; */
