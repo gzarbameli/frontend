@@ -4,8 +4,6 @@ import {
   NavLink,
   Bars,
   NavMenu,
-  NavBtn,
-  NavBtnLink
 } from './NavbarElements';
 
 const Navbar = () => {
@@ -13,13 +11,10 @@ const Navbar = () => {
     <>
       <Nav>
         <NavLink to='/'>
-          <img src={require('../../images/logo.png')} alt='logo'  width="280" height="100" />
+          <img src={require('../../images/logo.png')} alt='logo' width="280" height="100" />
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/about' activeStyle>
-            About The Project
-          </NavLink>
           <NavLink to='/book' activeStyle>
             Book Your Seat!
           </NavLink>
