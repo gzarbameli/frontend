@@ -23,28 +23,31 @@ const Login = ({ setToken }) => {
             password
         });
         console.log(matricula)
-
         setToken(token);
+        console.log(token.token)
     }
 
-    return (
-        <div className="login-wrapper">
-            <h1>Please Log In</h1>
+    return [<img src={require('../images/logo.png')} alt='logo' width="280" height="100"></img>,
+        <div className="login-box">
+            <h2> Login</h2>
             <form onSubmit={handleSubmit}>
-                <label>
-                    <p>Matricula</p>
-                    <input type="text" onChange={e => setMatricula(e.target.value)} />
-                </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" onChange={e => setPassword(e.target.value)} />
-                </label>
+            <div class="user-box">
+           <input type="text" name="" required="" onChange={e => setMatricula(e.target.value)}></input>
+         <label>Matricula</label>
+        </div> 
+        <div class="user-box">
+       <input type="password" name="" required="" onChange={e => setPassword(e.target.value)}></input>
+        <label>Password</label>
+       </div>
+ 
                 <div>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Submit </button>
                 </div>
             </form>
         </div>
-    );
+
+
+];
 };
 
 Login.propTypes = {
