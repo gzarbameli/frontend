@@ -398,3 +398,73 @@ select option {
 }
 
 
+.table, th, td {
+  position: inherit;
+  border:1px solid;
+  border-collapse: collapse;
+
+}
+
+.res-box {
+  position:fixed;
+  top: 57%;
+  left: 50%;
+  width: 50%;
+  height: 70%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  overflow-y:scroll;
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+
+.res-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.res-box th {
+  
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #03e9f4;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.res-box td {
+  
+  top:0;
+  left: 0;
+ 
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #03e9f4; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(11, 27, 55); 
+}
