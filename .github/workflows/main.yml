@@ -52,13 +52,15 @@ jobs:
         run: sudo apt-get update -y && sudo apt-get install gawk -y
 
       # Runs a set of commands using the runners shell
+      
+      #sleep 60
+      #kubectl get pods
       - name: Update Kubernetes Items 
         run: |
              ssh -oStrictHostKeyChecking=no -i labsuser.pem ubuntu@44.205.128.120 <<- 'EOF'
              pkill -f "port-forward --address=0.0.0.0 svc/frontend-service 30000:3000"
              kubectl get pod -n default --no-headers=true | awk '/frontend-deployment/{print $1}' | xargs  kubectl delete -n default pod
-             sleep 60
-             kubectl get pods
+             while ! [ $(kubectl get pods  -o jsonpath="{.status.phase}")=="Running" ]; do sleep; done
              kubectl port-forward --address=0.0.0.0 svc/frontend-service 30000:3000 > /dev/null 2>&1 &
              exit
              EOF
