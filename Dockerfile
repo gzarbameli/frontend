@@ -1,7 +1,7 @@
 FROM node:14-alpine
 #Workdir
 WORKDIR /app
-
+#CP
 COPY package.json ./
 
 COPY package-lock.json ./
