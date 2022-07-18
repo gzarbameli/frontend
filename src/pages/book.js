@@ -28,7 +28,7 @@ class Book extends React.Component {
 }
 */
 async function bookUser(credentials) {
-  return fetch('http://localhost:5000/book', {
+  return fetch('http://ec2-44-205-128-120.compute-1.amazonaws.com:30001/book', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
