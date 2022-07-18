@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 async function loginUser(credentials) {
-    return fetch('http://localhost:5000/login', {
+    return fetch('http://ec2-44-205-128-120.compute-1.amazonaws.com:30001/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
