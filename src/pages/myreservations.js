@@ -9,7 +9,7 @@ export default class MyReservations extends React.Component {
 
 
   componentDidMount() {
-    axios.get('http://localhost:5000/myreservations')
+    axios.get('http://ec2-44-205-128-120.compute-1.amazonaws.com:30001/myreservations')
       .then(res => {
         var reservations = res.data;
         reservations = reservations.map(reservation => {reservation.date = reservation.date.substring(0,10); return reservation;})
